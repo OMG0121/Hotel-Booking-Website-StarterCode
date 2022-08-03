@@ -2,11 +2,17 @@
     display: grid;
 }
 
+#list-view {
+    scroll-behavior: smooth;
+}
+
+#map-view {
+    scroll-behavior: smooth;
+}
 .list-img {
     height: 200px;
     width: 250px;
 }
-
 .hotel-list-view {
     width: 40%;
     margin: 4%;
@@ -21,7 +27,7 @@
     text-decoration: none; 
     color:black
   }
-
+  
 .imagesView{
       display: flex;
       flex-direction: row;
@@ -30,9 +36,8 @@
  }
  #map-view {
      display: none;
-
  }  
  #list{
     scroll-behavior: smooth;
-
+    
 }
