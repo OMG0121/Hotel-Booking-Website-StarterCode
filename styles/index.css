@@ -1,13 +1,17 @@
 .body {
     display: flex;
     flex-direction: column;
-    height: 850px ;
+    height: 1200px ;
+    width: auto;
     justify-content: space-evenly;
     overflow-y: scroll;
     background-color: #e0e0e0;
+    position: relative;
 }
 .img-background {
     height: 380px;
+    position: relative;
+    /*overflow-y: scroll;*/
     background-image: url("https://media-cdn.tripadvisor.com/media/photo-o/14/10/2e/af/india.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -30,11 +34,11 @@
 .city-cards {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    /*margin-left: 15%;
-    margin-right: 15%;*/
+    margin-left: 15%;
+    margin-right: 15%;
     position: relative;
 }
 .imgPlace {
@@ -43,6 +47,8 @@
     /*padding: 4%;*/
     border-radius: 25%;
     box-shadow: 10px 10px 10px grey;
+    margin: 10%;
+    position: relative;
 }
 
 .imgPlace:hover {
@@ -56,6 +62,7 @@
     color: #f1f1f1;
     visibility:hidden;
   }
+  /*
   .text2Sty{
     position: absolute;
     top:50%;
@@ -80,35 +87,67 @@
     color: #f1f1f1;
     visibility: hidden;
 }
-
+.text5Sty{
+    position: absolute;
+    top:50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+    color: #f1f1f1;
+    visibility: hidden;
+}
+*/
 .imgPlace:hover + .text1Sty {
     visibility: visible;
 }
-
+/*
 .imgPlace:hover + .text2Sty {
     visibility: visible;
 }
-
 .imgPlace:hover + .text3Sty {
     visibility: visible;
 }
-
 .imgPlace:hover + .text4Sty {
     visibility: visible;
 }
+*/
 .view-class {
     text-align: center;
     text-decoration: none;
+    /*position: absolute;
+    top:0%;
+    bottom: 0%;*/
+    /*transform: translate(50%, 50%);*/
 }
-/*
-*/
 
-/*
-.loginStyle{
-    right: 0%;
-    margin-top: 20px;
-    margin-right: 1%;
-    text-decoration: none;
-    position: absolute;
-    color: black;
-  }
+@media only screen and (max-width:500px){
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+    #searchBar {
+        width: 60%;
+    }
+    .city-cards {
+        flex-direction: column;
+        margin: auto;
+    }
+    .imgPlace {
+        height: 200px;
+        width: 200px;
+        padding: 4% 0%;
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    #search-bar {
+        width: 60%;
+    }
+    .city-cards {
+        flex-wrap: wrap;
+        margin: auto;
+    }
+    .imgPlace {
+        height: 250px;
+        width: 250px;
+        padding: 4% 0%;
+    }
+}

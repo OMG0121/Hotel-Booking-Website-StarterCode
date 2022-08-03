@@ -1,11 +1,9 @@
 #container{
     display: grid;
 }
-
 #list-view {
     scroll-behavior: smooth;
 }
-
 #map-view {
     scroll-behavior: smooth;
 }
@@ -22,6 +20,9 @@
     margin-left: 5%;
     margin-right: 4%;
 }
+.hotel-list-view:hover {
+    background-color: rosybrown;
+}
 .viewSty{
     font-weight: bold;
     text-decoration: none; 
@@ -35,9 +36,14 @@
       justify-content: center;
  }
  #map-view {
-     display: none;
+     display: flex;
+     flex-direction: column;
+
  }  
  #list{
-    scroll-behavior: smooth;
-    
+    scroll-behavior: smooth;   
 }
+
+.checked {
+    color: orange;
+  }

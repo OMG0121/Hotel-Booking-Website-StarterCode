@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List</title>
 </head>
 <link href="styles/common.css" rel="stylesheet" />
@@ -9,8 +10,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
     <header><a href="index.html"><img class="imgStyle" alt="logo" src="assests/images/logo.png"></a>
         <span class="loginStyle">
@@ -30,16 +30,20 @@
                         <a class="nav-link" data-toggle="pill" href="#map-view">Map View</a>
                     </li>
                 </ul>
-
                 <div class="tab-content" id="pills-tabContent">
-
                     <div id="list-view" class="tab-pane fade show active">
                         <a href="detail.html" target="_self">
                             <div class="hotel-list-view">
                                 <img class="list-img"
                                     src="https://media-cdn.tripadvisor.com/media/photo-w/17/b3/09/b4/by-the-poolside.jpg">
                                 <span style="margin-left: 5%; color: black;margin-top: 5%;">
-                                    <h3>Radisson Blu Hotel</h3>5 Star</br></br>New Delhi
+                                    <h3>Radisson Blu Hotel</h3><p>
+                                        <span class="fa fa-star checked"></span>
+                                       <span class="fa fa-star checked"></span>
+                                       <span class="fa fa-star checked"></span>
+                                       <span class="fa fa-star checked"></span>
+                                       <span class="fa fa-star checked">
+                                     </p>New Delhi
                                 </span>
                             </div>
                         </a>
@@ -47,20 +51,26 @@
                             <img class="list-img"
                                 src="https://media-cdn.tripadvisor.com/media/photo-w/15/06/31/5f/facade.jpg" />
                             <span style="margin-left: 5%; color: black;margin-top: 5%;">
-                                <h3>The Lalit New Delhi</h3>4.5 Star</br></br>New Delhi
+                                <h3>The Lalit New Delhi</h3><p>
+                                    <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star-half-o checked"></span>
+                                  <span class="fa fa-star "></span></p>New Delhi
                             </span>
                         </div>
                         <div class="hotel-list-view" style="margin-bottom: 10%">
                             <img class="list-img"
                                 src="https://media-cdn.tripadvisor.com/media/photo-w/1b/4e/9b/11/exterior.jpg" />
                             <span style="margin-left: 5%; color: black;margin-top: 5%;">
-                                <h3>Taj Palace</h3>4.5 Star</br></br>New Delhi
-                            </span>
-
+                                <h3>Taj Palace</h3><p><span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star">
+                                  </p>
                         </div>
                     </div>
-
-
                     <div id="map-view" class="tab-pane fade">
                         <img src=https://cdn.pixabay.com/photo/2018/01/31/05/43/web-3120321_960_720.png>
                         <p>Map View</p>
@@ -102,17 +112,14 @@
                         <input type="password" id="example-input-password" placeholder="Enter Password" required
                             autocomplete="off" />
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary btn-sm"
                         style="display: flex; margin: auto;">Login</button>
-
                 </div>
             </div>
         </div>
     </div>
-
     <!--contact modal-->
     <div class="modal" tabindex="-1" role="dialog" id="example-modal-signup">
         <div class="modal-dialog" role="document">
@@ -131,7 +138,6 @@
                             <label for="email">Email:</label><br />
                             <input type="email" id="email" placeholder="Enter your email id" required />
                         </p>
-
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -141,5 +147,4 @@
         </div>
     </div>
 </body>
-
 </html>
