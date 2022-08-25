@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +11,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
+
 <body>
   <div>
+
+
     <header><a href="index.html"><img class="imgStyle" alt="logo" src="assests/images/logo.png"></a>
+    <header id="header">
+      <!-- <a href="index.html"><img class="imgStyle" alt="logo" src="assests/images/logo.png"></a>
       <span class="loginStyle">
         <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#login" id="login-button"
           style="padding: -0.625rem .75rem;">LOGIN</button>
       </span><br />
+      </span><br /> -->
     </header>
+
+
     <div class="mainDiv">
       <div class="imgDiv" style="background-color: rgb(132,136,139); width: 50%; height: 20%; margin: 2% auto">
         <img style="height: 270px; width: 300px;"
@@ -40,12 +47,19 @@
           <b>Tariff Breakdown:</b> Rs.1000 &#10799; 2 Adults &#10799; 5 Nights </br></br>
           <b>Total Amount:</b> Rs.10000 </br> </br>
         </p>
+
         <a href="#" target="_self" style="text-decoration: none; color: black; margin: auto;"><button type="button"
             class="btn btn-success" disabled>Pay Now</button></a>
+        <a href="#" target="_self" style="text-decoration: none; color: black; margin: auto;">
+          <button type="button" id="ena" onclick="pay()" class="btn btn-success" disabled>Pay Now</button></a>
       </div>
+
     </div>
+
     <footer>
       <div><span id="contactStyle"><button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+    <footer id="footer">
+      <!-- <div><span id="contactStyle"><button type="button" class="btn btn-info btn-sm" data-toggle="modal"
             data-target="#example-modal-signup" id="sign-up-button">Contact Us</button>
         </span></div>
       <div id="iconStyle"><a href="https://www.facebook.com/" target="_blank"><img class="footerImg"
@@ -55,9 +69,14 @@
         <a href="https://www.twitter.com/" target="_blank"><img class="footerImg" src="assests/images/twitter.png"></a>
       </div>
       <div id="copyrightStyle">&#169; 2020 ROOM SEARCH PVT LTD</div>
+      <div id="copyrightStyle">&#169; 2020 ROOM SEARCH PVT LTD</div> -->
     </footer>
 <!--login-->
 <div class="modal" tabindex="-1" role="dialog" id="login">
+    <script src="scripts/common.js" ></script>
+    <script src="scripts/payment.js" ></script>
+    <!--login-->
+    <!-- <div class="modal" tabindex="-1" role="dialog" id="login">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
           <div class="modal-header">
@@ -85,8 +104,12 @@
       </div>
   </div>
 </div>
+</div> -->
+
 <!--contact modal-->
 <div class="modal" tabindex="-1" role="dialog" id="example-modal-signup">
+    <!--contact modal-->
+    <!-- <div class="modal" tabindex="-1" role="dialog" id="example-modal-signup">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
           <div class="modal-header">
@@ -112,5 +135,8 @@
   </div>
 </div>
   </div>
+</div> -->
+
 </body>
+
 </html>
