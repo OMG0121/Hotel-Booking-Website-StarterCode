@@ -1,45 +1,95 @@
-function store() {
-    var Username = document.getElementById("name").value;
-    var password = document.getElementById("password").value;
-    localStorage.setItem(Username, password);
-  }
+let urlParams = new URLSearchParams(window.location.search);
+const API_URL = "https://travel-advisor.p.rapidapi.com/";
+const travelAdvisorHost = "travel-advisor.p.rapidapi.com";
+const travelAdvisorKey = "5353f5c491mshc8fec11dc4a9bb2p1654a9jsn01a9c2d668b1";
 
-  function loginM() {
-    store();
-    var Username = document.getElementById("name").value;
-    var password = document.getElementById("password").value;
-    if (Username == "admin" && password == "admin") {
-      window.alert("Login Successful");
-      console.log(document.getElementById("logout-button").innerHTML);
-      document.getElementById("logout-button").innerHTML = "LOGOUT";
-      document.getElementById("logout-button").setAttribute("data-toggle", "none");
-      document.getElementById("ena").removeAttribute("disabled");
+//Function for enable 'Pay Now' Button when you have logged in
 
+let PayButtonStatus = e => {
+    let refToLogin = document.getElementsByClassName('btn btn-light btn-sm')[0];
+
+    let usernameValue = localStorage.getItem('username');
+    let passwordValue = localStorage.getItem('password');
+    let RefToButton = document.getElementsByClassName('btn btn-danger')[0];
+
+    if (usernameValue == 'admin' && passwordValue == 'admin' ) {
+        RefToButton.disabled = false;
     }
-  }
-  function logout() {
-    var data = document.getElementById("logout-button");
+}
 
-    if (data.innerHTML == "LOGOUT" || data.innerHTML == "LOGIN") {
-      data.innerHTML = "LOGIN";
-      data.setAttribute("data-toggle", "modal");
-      document.getElementById("close").setAttribute("data-dismiss","modal");
-      document.getElementById("ena").setAttribute("disabled",true);
-      localStorage.clear();
-    }
-  }
+PayButtonStatus();
+
+let DoPay = () => {
+    alert('Hi your booking is successful !!');
+};
 
 
+let fetchAPI = () => {
+  let xhr = new XMLHttpRequest();
 
-function pay(){
-    var data = document.getElementById("logout-button");
+  xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === this.DONE) {
+          let result = JSON.parse(this.responseText).data[0];
 
-    if (data.innerHTML == "LOGOUT"){
+          document.getElementById("hotel-image").src = result.photo.images.medium.url;
+          document.getElementById("hotel-name").innerText = result.name;
+          document.getElementById("hotel-rank").innerHTML = "<b>" + result.ranking + "</b>";
+          document.getElementById("hotel-address").innerText = result.address;
+         
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("wrapper").style.display = "block";
+      }
+  });
+  xhr.open("GET", API_URL + "hotels/get-details?lang=en_US&location_id=" + urlParams.get('id'));
+  xhr.setRequestHeader("x-rapidapi-host", travelAdvisorHost);
+  xhr.setRequestHeader("x-rapidapi-key", travelAdvisorKey);
 
-        document.getElementById("ena").removeAttribute("disabled");
-        alert("Hi your booking is sucessful");
-    }else{
+  xhr.send();
+}
 
-        document.getElementById("ena").setAttribute("disabled",true);
-    }
-  } 
+fetchAPI();
+
+// set customer and payment details
+function setCustomerAndPaymentDetails() {
+  const name = urlParams.get("name");
+  const adults = urlParams.get("adults");
+ 
+  const stringFromDate = urlParams.get("fromDate");
+  const stringToDate = urlParams.get("toDate");
+  // const stringTotal = urlParams.get("total");
+
+  const fromDateArr = stringFromDate.split("-");
+  const toDateArr = stringToDate.split("-");
+
+  const fromDate = new Date(stringFromDate);
+  const toDate = new Date(stringToDate);
+
+  const noOfDays =
+    (toDate.getTime() - fromDate.getTime()) / (1000 * 60 * 60 * 24);
+
+  const total = 1000 * noOfDays * parseInt(adults);
+
+  // get ref to the html elements
+ 
+  const refToName = document.getElementById("name");
+  const refToAdults = document.getElementById("adults");
+  const refToFromDate = document.getElementById("fromDate");
+  const refToToDate = document.getElementById("toDate");
+  const refToTarrifBreakdown = document.getElementById("tariff");
+  const refToTotalAmount = document.getElementById("total");
+
+  // set the values for html references
+  refToName.innerText = name;
+  refToAdults.innerText = adults;
+  refToFromDate.innerText = `${fromDateArr[2]}/${fromDateArr[1]}/${fromDateArr[0]}`;
+  refToToDate.innerText = `${toDateArr[2]}/${toDateArr[1]}/${toDateArr[0]}`;
+  refToTarrifBreakdown.innerText = `Rs.1000 x ${adults} Adults x ${noOfDays} Nights`;
+  refToTotalAmount.innerText = `Rs.${total}`;
+}
+
+let reloadPage = () => {
+  
+}
+setCustomerAndPaymentDetails();
+getAndSetHotelDetails();
+
